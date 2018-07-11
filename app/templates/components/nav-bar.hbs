@@ -7,10 +7,14 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                {{#link-to "index" class="nav-link"}}
+                    Home
+                {{/link-to}}
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                {{#link-to "contacts" class="nav-link"}}
+                    Contacts
+                {{/link-to}}
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
