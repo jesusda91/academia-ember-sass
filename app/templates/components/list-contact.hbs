@@ -19,7 +19,7 @@
                     <td>{{contact.email}}</td>
                     <td>{{contact.address}}</td>
                     <td>{{contact.phone}}</td>
-                    <td {{action "editContact" contact}}><img src="/assets/images/edit-regular.svg" class="icon-action"></td>
+                    {{#link-to "contacts.edit" contact.id}}<td><img src="/assets/images/edit-regular.svg" class="icon-action"></td>{{/link-to}}
                     <td {{action "deleteContact" contact}}><img src="/assets/images/trash-alt-regular.svg" class="icon-action"></td>
                 </tr>
             {{/each}}
