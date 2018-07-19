@@ -1,4 +1,4 @@
-<div class="container my-4">
+<div class="container my-4 list-contact">
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -19,8 +19,8 @@
                     <td>{{contact.email}}</td>
                     <td>{{contact.address}}</td>
                     <td>{{contact.phone}}</td>
-                    <td><img src="/assets/images/" alt=""></td>
-                    <td><img src="/assets/images/" alt=""></td>
+                    <td {{action "editContact" contact}}><img src="/assets/images/edit-regular.svg" class="icon-action"></td>
+                    <td {{action "deleteContact" contact}}><img src="/assets/images/trash-alt-regular.svg" class="icon-action"></td>
                 </tr>
             {{/each}}
         </tbody>

@@ -68,6 +68,7 @@ export default Component.extend({
                 <th scope="col">email</th>
                 <th scope="col">address</th>
                 <th scope="col">phone</th>
+                <th scope="col">edit</th>
             </tr>
         </thead>
         <tbody>
@@ -77,6 +78,7 @@ export default Component.extend({
                     <td>{{contact.name}}</td>
                     <td>{{contact.email}}</td>
                     <td>{{contact.address}}</td>
+                    <td>{{contact.phone}}</td>
                     <td>{{contact.phone}}</td>
                 </tr>
             {{/each}}
@@ -126,4 +128,48 @@ export default Route.extend({
         </ul>
     </div>
 </nav>
+```
+
+```javascript
+import Component from '@ember/component';
+
+export default Component.extend({
+    actions: {
+        deleteContact(contact) {
+            console.log("deleteContact", contact);
+            contact.destroyRecord();
+        }
+    }
+});
+```
+
+```javascript
+<div class="container my-4 list-contact">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">name</th>
+                <th scope="col">email</th>
+                <th scope="col">address</th>
+                <th scope="col">phone</th>
+                <th scope="col">edit</th>
+                <th scope="col">delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each contacts as |contact index|}}
+                <tr>
+                    <th scope="row">{{index}}</th>
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.address}}</td>
+                    <td>{{contact.phone}}</td>
+                    <td {{action "editContact" contact}}><img src="/assets/images/edit-regular.svg" class="icon-action"></td>
+                    <td {{action "deleteContact" contact}}><img src="/assets/images/trash-alt-regular.svg" class="icon-action"></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
 ```
